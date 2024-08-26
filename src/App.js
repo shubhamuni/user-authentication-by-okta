@@ -7,14 +7,12 @@ import Staff from './Components/Pages/Staff';
 function App() {
   return (
     <Router>
-      <div>
-        <Navbar />
-        <div className="container">
-          <Routes>
-            <Route path='/' exact={true} Component={Home}/>
-            <Route path='/staff' Component={Staff} />
-          </Routes>
-        </div>
+      <Navbar />
+      <div className="container">
+        <Routes>
+          <Route path='/' exact={true} Component={Home}/>
+          <Route path='/staff' Component={Staff} />
+        </Routes>
       </div>
     </Router>
   );
