@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import LogoutButton from '../Auth/Logout';
 
 class Navbar extends Component {
   render() {
@@ -25,8 +26,18 @@ class Navbar extends Component {
                 </Link>
               </li>
               <li className="nav-item">
+                <Link className="nav-link" to="/home">
+                  Login
+                </Link>
+              </li>
+              <li className="nav-item">
                 <Link className="nav-link" to="/staff">
                   Staff
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to="/staff">
+                  <LogoutButton/>
                 </Link>
               </li>
             </ul>
