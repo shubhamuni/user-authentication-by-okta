@@ -4,7 +4,6 @@ import Card from "./Card"; // Importing the Card component
 const CardList = ({ robot }) => {
     const [loading, setLoading] = useState(true); // Initializing loading state to true using useState hook
     
-    console.log(robot)
     // Simulate loading for 1 second, then set loading to false
     setTimeout(() => {
         setLoading(false);

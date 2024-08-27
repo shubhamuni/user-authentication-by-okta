@@ -46,5 +46,8 @@
     "resolve-url-loader": {
       "postcss": "8.4.41"
     }
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.10"
   }
 }
