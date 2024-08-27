@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 
 const Navbar = () => {
-  const { isAuthenticated, logout } = useAuth0();
+  const { isAuthenticated, logout, user } = useAuth0();
   return (
     <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
       <div className="container">
@@ -28,6 +28,11 @@ const Navbar = () => {
             {isAuthenticated ?<><li className="nav-item">
               <Link className="nav-link" to="/staff">
                 Staff
+              </Link>
+            </li>
+              <li className="nav-item">
+              <Link className="nav-link" to="/staff">
+                  Hello {user.name}
               </Link>
             </li>
             <li className="nav-item">
