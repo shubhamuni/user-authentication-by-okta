@@ -7,7 +7,8 @@ import SigninWidget from './Components/Auth/SignInWidget';
 import { useAuth0 } from '@auth0/auth0-react';
 
 function App() {
-  const { logout, user, isLoading } = useAuth0();
+  const { logout, user } = useAuth0();
+  console.log("Logout", logout, "user", user, "isLoading",)
   return (
     <Router>
       <Navbar />
