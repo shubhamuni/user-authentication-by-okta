@@ -3,20 +3,52 @@ import './App.css';
 import Navbar from './Components/Layout/Navbar';
 import Home from './Components/Pages/Home';
 import Staff from './Components/Pages/Staff';
-import SigninWidget from './Components/Auth/SignInWidget';
 import { useAuth0 } from '@auth0/auth0-react';
+import CardList from './Components/card/CardList';
+import Search from './Components/card/Search';
+import { useEffect, useState } from 'react';
 
 function App() {
-  const { logout, user } = useAuth0();
-  console.log("Logout", logout, "user", user, "isLoading",)
+  const { isAuthenticated } = useAuth0();
+  const [robots, setRobots] = useState([]);
+  const [searchfield, setSearchfield] = useState('');
+
+  useEffect(() => {
+    fetch('https://dummyjson.com/products')
+      .then(response => response.json())
+      .then((users) => {
+        setTimeout(() => {
+          setRobots(users.products);
+        }, 1000);
+      });
+  }, []);
+
+  const onSearchChange = (event) => {
+    setSearchfield(event.target.value);
+  };
+
+  const filteredRobots = robots.filter((robot) => {
+    return robot.title.toLowerCase().includes(searchfield.toLowerCase());
+  });
+
   return (
     <Router>
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path='/' exact={true} Component={Home}/>
-          <Route path='/home' exact={true} Component={SigninWidget}/>
-          <Route path='/staff' Component={Staff} />
+          <Route path='/' exact={true} component={Home} />
+          <Route path='/staff' component={Staff} />
+          {isAuthenticated && (
+            <Route
+              path="/card"
+              element={
+                <>
+                  <Search searchChange={onSearchChange} />
+                  <CardList robot={filteredRobots} />
+                </>
+              }
+            />
+          )}
         </Routes>
       </div>
     </Router>
