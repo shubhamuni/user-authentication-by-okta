@@ -13,7 +13,7 @@ const CardList = ({ robot }) => {
     // Render the list of cards if loading is false, otherwise show a loading message
     return(
         !loading ? (
-            <div className="container">
+            <div className="container mt-5">
                 <div className="row">
                     {robot.map((user, i) => {
                         // Map through the robot array to create Card components
