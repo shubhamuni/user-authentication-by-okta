@@ -13,18 +13,23 @@ const CardList = ({ robot }) => {
     // Render the list of cards if loading is false, otherwise show a loading message
     return(
         !loading ? (
-            robot.map((user, i) => { // Map through the robot array to create Card components
-                return (
-                    <Card
-                        thumbnail={robot[i].thumbnail} // Passing thumbnail prop to Card component
-                        key={i} // Setting key prop to index for unique identification
-                        name={robot[i].title} // Passing name prop to Card component
-                        id={robot[i].id} // Passing id prop to Card component
-                        email={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
-                        shippingInformation={robot[i].brand} // Passing shippingInformation prop to Card component
-                    />
-                );
-            })
+            <div className="container">
+                <div className="row">
+                    {robot.map((user, i) => {
+                        // Map through the robot array to create Card components
+                        return (
+                            <Card
+                                thumbnail={robot[i].thumbnail} // Passing thumbnail prop to Card component
+                                key={i} // Setting key prop to index for unique identification
+                                name={robot[i].title} // Passing name prop to Card component
+                                id={robot[i].id} // Passing id prop to Card component
+                                email={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
+                                shippingInformation={robot[i].brand} // Passing shippingInformation prop to Card component
+                            />
+                        )
+                    })}
+                </div>
+            </div>
         ) : (
             <p>Please wait...</p> // Show loading message while data is being fetched
         )   
