@@ -27,6 +27,7 @@ const CardList = ({ robot }) => {
                                 shippingInformation={robot[i].shippingInformation}
                                 // Passing shippingInformation prop to Card component
                                 price={robot[i].price}
+                                description={robot[i].description}
                             />
                         )
                     })}
