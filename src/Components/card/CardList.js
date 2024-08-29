@@ -3,7 +3,7 @@ import Card from "./Card"; // Importing the Card component
 
 const CardList = ({ robot }) => {
     const [loading, setLoading] = useState(true); // Initializing loading state to true using useState hook
-    
+    console.log(robot)
     // Simulate loading for 1 second, then set loading to false
     setTimeout(() => {
         setLoading(false);
@@ -24,7 +24,9 @@ const CardList = ({ robot }) => {
                                 name={robot[i].title} // Passing name prop to Card component
                                 id={robot[i].id} // Passing id prop to Card component
                                 email={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
-                                shippingInformation={robot[i].brand} // Passing shippingInformation prop to Card component
+                                shippingInformation={robot[i].shippingInformation}
+                                // Passing shippingInformation prop to Card component
+                                price={robot[i].price}
                             />
                         )
                     })}
