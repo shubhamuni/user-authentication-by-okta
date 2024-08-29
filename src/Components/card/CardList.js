@@ -14,7 +14,7 @@ const CardList = ({ robot }) => {
     return(
         !loading ? (
             <div className="container mt-5">
-                <div className="row">
+                <div className="row pl-5">
                     {robot.map((user, i) => {
                         // Map through the robot array to create Card components
                         return (

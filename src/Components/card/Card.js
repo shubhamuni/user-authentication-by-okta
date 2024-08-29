@@ -5,7 +5,7 @@ function Card(props) {
   const { name, category, shippingInformation, thumbnail } = props;
 
   return (
-    <div className="col-md-3 shadow-lg mb-4 p-3 m-auto">
+    <div className="col-md-3 shadow-lg mb-4 p-3 m-5 rounded">
       <img src={thumbnail} class="card-img-top" alt="..."/>
       <div class="card-body">
         <h5 class="card-title">{name}</h5>
