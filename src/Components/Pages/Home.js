@@ -1,7 +1,14 @@
 import React from 'react'
 
-export default function Home() {
+  const Home = () => {
+    console.log("Home component")
   return (
-    <div>Home</div>
+    <div className='container'>
+      <h1>Home</h1>
+      <div className="alert alert-danger" role="alert">
+        You have to login first pleasae click on login button above
+      </div>
+    </div>
   )
 }
+export default Home;

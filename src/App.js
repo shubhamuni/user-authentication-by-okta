@@ -36,8 +36,10 @@ function App() {
       <Navbar />
       <div className="container">
         <Routes>
-          <Route path='/' exact={true} component={Home} />
-          <Route path='/staff' component={Staff} />
+          <Route path='/' exact={true} element={<Home />} />
+          <Route path='/home' exact={true} element={<Home />} />
+          <Route path='/staff'  element={<Staff />}/>
+          
           {isAuthenticated && (
             <Route
               path="/card"
