@@ -4,7 +4,7 @@ import { useAuth0 } from '@auth0/auth0-react';
 
 const Navbar = () => {
   const { isAuthenticated, logout, user, loginWithRedirect } = useAuth0();
-  console.log("User", user)
+  
 
   const capitalizeWords = (string) => {
     return string
@@ -40,31 +40,34 @@ const Navbar = () => {
               </Link>
             </li>
             }
-            {isAuthenticated ?<><li className="nav-item">
-              <Link className="nav-link" to="/staff">
-                Staff
-              </Link>
-            </li>
+            {isAuthenticated ?
+              <>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/staff">
+                    Staff
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link">
+                      Welcome 
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link">
+                      {capitalizeWords(user.name)}
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link" to="/staff" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                    Logout
+                  </Link>
+                </li>
+              </> :
               <li className="nav-item">
-              <Link className="nav-link">
-                  Welcome 
-              </Link>
-            </li>
-              <li className="nav-item">
-              <Link className="nav-link">
-                  {capitalizeWords(user.name)}
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/staff" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
-                Logout
-              </Link>
-            </li> </> :
-              <li className="nav-item">
-              <Link className="nav-link" to="/" onClick={() => loginWithRedirect()}>
-                Login
-              </Link>
-            </li>
+                <Link className="nav-link" to="/" onClick={() => loginWithRedirect()}>
+                  Login
+                </Link>
+              </li>
             }
           </ul>
         </div>
