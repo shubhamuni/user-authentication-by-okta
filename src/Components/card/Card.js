@@ -10,7 +10,7 @@ function Card(props) {
         <h5 className="card-title">{name}</h5>
         <p className="card-text">{category}</p>
         <p className="card-text">{shippingInformation}</p>
-        <p className="card-text">$ {price}</p>
+        <p className="card-text">₹ {Number(84*price).toFixed(0)}</p>
       </div>
     </div>
   );
