@@ -22,7 +22,7 @@ const CardList = ({ robot }) => {
                                 key={i} // Setting key prop to index for unique identification
                                 name={robot[i].title} // Passing name prop to Card component
                                 id={robot[i].id} // Passing id prop to Card component
-                                email={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
+                                category={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
                                 shippingInformation={robot[i].shippingInformation}
                                 // Passing shippingInformation prop to Card component
                                 price={robot[i].price}
