@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             {isAuthenticated ? <li className="nav-item">
-              <Link className="nav-link" to="/card">
+              <Link className="nav-link" to="/home">
                 Home
               </Link>
             </li> :
@@ -48,8 +48,8 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link">
-                      Welcome 
+                  <Link className="nav-link" to="/card">
+                      Products 
                   </Link>
                 </li>
                 <li className="nav-item">

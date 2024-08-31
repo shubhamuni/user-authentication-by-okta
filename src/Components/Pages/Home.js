@@ -1,13 +1,16 @@
+import { useAuth0 } from '@auth0/auth0-react';
 import React from 'react'
 
   const Home = () => {
-    console.log("Home component")
+    const { isAuthenticated, user } = useAuth0();
   return (
     <div className='container'>
       <h1>Home</h1>
-      <div className="alert alert-danger" role="alert">
+      {!isAuthenticated ? <div className="alert alert-danger" role="alert">
         You have to login first pleasae click on login button above
-      </div>
+      </div> : 
+        <h3>Welcome {user.name}</h3>
+      }
     </div>
   )
 }
