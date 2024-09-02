@@ -18,13 +18,12 @@ const CardList = ({ robot }) => {
                         // Map through the robot array to create Card components
                         return (
                             <Card
-                                thumbnail={robot[i].thumbnail} // Passing thumbnail prop to Card component
-                                key={i} // Setting key prop to index for unique identification
-                                name={robot[i].title} // Passing name prop to Card component
-                                id={robot[i].id} // Passing id prop to Card component
-                                category={robot[i].category} // Passing email prop to Card component (incorrectly named, consider changing to category)
+                                thumbnail={robot[i].thumbnail} 
+                                key={i} 
+                                name={robot[i].title} 
+                                id={robot[i].id} 
+                                category={robot[i].category} 
                                 shippingInformation={robot[i].shippingInformation}
-                                // Passing shippingInformation prop to Card component
                                 price={robot[i].price}
                                 description={robot[i].description}
                             />
