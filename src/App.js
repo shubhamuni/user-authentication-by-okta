@@ -10,7 +10,7 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const { isAuthenticated } = useAuth0();
-  const [robots, setRobots] = useState([]);
+  const [products, setProducts] = useState([]);
   const [searchfield, setSearchfield] = useState('');
 
   useEffect(() => {
@@ -18,7 +18,7 @@ function App() {
       .then(response => response.json())
       .then((users) => {
         setTimeout(() => {
-          setRobots(users.products);
+          setProducts(users.products);
         }, 1000);
       });
   }, []);
@@ -27,8 +27,8 @@ function App() {
     setSearchfield(event.target.value);
   };
 
-  const filteredRobots = robots.filter((robot) => {
-    return robot.title.toLowerCase().includes(searchfield.toLowerCase());
+  const filteredProducts = products.filter((product) => {
+    return product.title.toLowerCase().includes(searchfield.toLowerCase());
   });
 
   return (
@@ -46,7 +46,7 @@ function App() {
               element={
                 <>
                   <Search searchChange={onSearchChange} />
-                  <CardList robot={filteredRobots} />
+                  <CardList product={filteredProducts} />
                 </>
               }
             />

@@ -1,7 +1,7 @@
 import React, { useState } from "react"; // Importing React and useState hook
 import Card from "./Card"; // Importing the Card component
 
-const CardList = ({ robot }) => {
+const CardList = ({ product }) => {
     const [loading, setLoading] = useState(true); // Initializing loading state to true using useState hook
     // Simulate loading for 1 second, then set loading to false
     setTimeout(() => {
@@ -14,18 +14,18 @@ const CardList = ({ robot }) => {
         !loading ? (
             <div className="container mt-5">
                 <div className="row pl-5">
-                    {robot.map((user, i) => {
-                        // Map through the robot array to create Card components
+                    {product.map((user, i) => {
+                        // Map through the product array to create Card components
                         return (
                             <Card
-                                thumbnail={robot[i].thumbnail} 
+                                thumbnail={product[i].thumbnail} 
                                 key={i} 
-                                name={robot[i].title} 
-                                id={robot[i].id} 
-                                category={robot[i].category} 
-                                shippingInformation={robot[i].shippingInformation}
-                                price={robot[i].price}
-                                description={robot[i].description}
+                                name={product[i].title} 
+                                id={product[i].id} 
+                                category={product[i].category} 
+                                shippingInformation={product[i].shippingInformation}
+                                price={product[i].price}
+                                description={product[i].description}
                             />
                         )
                     })}
